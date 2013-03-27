@@ -36,3 +36,47 @@ hometown: ''
 github_user: ''
 reason_for_joining: ''
 fun_fact: ''
+--- 
+...
+--- !ruby/object:Student
+reason_for_joining: agg
+--- 
+...
+--- !ruby/object:Instructor
+type: !binary |-
+  G1tB
+--- !ruby/object:Student
+reason_for_joining: sf
+--- 
+...
+--- 
+...
+--- !ruby/object:Student
+name: jen
+email: jennolim@gmail.com
+hometown: fg
+github_user: sd
+fun_fact: sdg
+reason_for_joining: dsg
+--- !ruby/object:Instructor
+name: wqf
+email: gsdg
+type: sdfg
+hometown: asg
+github_user: sdg
+twitter: sdg
+fun_fact: adg
+--- !ruby/object:Instructor
+name: asg
+email: ! '@'
+hometown: asdg
+github_user: asf
+fun_fact: asf
+type: asf
+--- !ruby/object:Student
+name: jen
+email: ! '@'
+hometown: asg
+github_user: asf
+fun_fact: asfg
+reason_for_joining: as

@@ -17,33 +17,16 @@ class Person
   attr_accessor :twitter
   attr_accessor :fun_fact
 
-  # def self.create_person(type)
-  #   case type
-  #   when "Instructor"
-  #     Instructor.new
-  #   when "Student"
-  #     Student.new
-  #   else nil
-  #   end
-  #   end
-
-  def questions
-  print "What is your name? "
-    self.name = gets.strip.chomp
-    print "What is your email? "
-    self.email = gets.strip.chomp
-    while not self.email.include?("@")
-      print "You need to enter an email with a '@'! "
-      self.email = gets.strip.chomp
+  def self.create_person(type)
+    case type
+    when "Instructor"
+      Instructor.new
+    when "Student"
+      Student.new
+    else nil
     end
-    print "Where are you from? "
-    self.hometown = gets.strip.chomp
-    print "What's your GitHub username? "
-    self.github_user = gets.strip.chomp
-    print "Tell me a fun fact about yourself! "
-    self.fun_fact = gets.strip.chomp 
-  end
 
+  end
 end
 
 class Student < Person
@@ -54,8 +37,6 @@ class Instructor < Person
   attr_accessor :type
 end
 
-
-
 @directory = ""
 puts "Student Directory, v0.0.2 by Jen Lim"
 print "Enter Student or Instructor, q to save and quit: "
@@ -64,20 +45,35 @@ while ((input = gets.strip.chomp) != 'q') do
 
   person = nil
   case input
-    
-  when 'student'.downcase 
-    person = Student.new
-    person.questions 
 
+  when input != ('student'.downcase || 'instructor'.downcase)
+    print "Please enter student or instructor."
+  end
+
+    person = Person.new
+    print "What is your name? "
+    person.name = gets.strip.chomp
+    print "What is your email? "
+    person.email = gets.strip.chomp
+    while not person.email.include?("@")
+      print "You need to enter an email with a '@'! "
+      person.email = gets.strip.chomp
+    end
+    print "Where are you from? "
+    person.hometown = gets.strip.chomp
+    print "What's your GitHub username? "
+    person.github_user = gets.strip.chomp
+    print "Tell me a fun fact about yourself! "
+    person.fun_fact = gets.strip.chomp 
+
+    when 'student'
+    person = Student.new
     print "What made you join WDI at GA? "
     person.reason_for_joining = gets.strip.chomp
-    
-  when 'instructor'.downcase
+  end
 
-
+    when 'instructor'
     person = Instructor.new
-    person.questions
-
     print "What sort of instructor are you? "
     person.type = gets.strip.chomp
 
@@ -87,7 +83,7 @@ while ((input = gets.strip.chomp) != 'q') do
   @directory += person.to_yaml
   puts @directory
   
-  print "Enter Student or Instructor, q to save and quit: "
+  print "Student or instructor?, q to save and quit: "
 end
 
 # Open a student_directory.yml YAML file and write it out on one line
