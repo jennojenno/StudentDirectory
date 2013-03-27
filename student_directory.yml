@@ -6,3 +6,33 @@ name: Jenn
 email: jennolim@gmail.com
 hometown: Seoul, Korea
 fun_fact: I liek cats
+--- !ruby/object:Student
+name: jen
+email: asfdg
+hometown: asfasf
+github_user: asd
+reason_for_joining: dsg
+fun_fact: ags
+--- 
+...
+--- !ruby/object:Student
+name: ''
+email: ''
+hometown: ''
+github_user: ''
+reason_for_joining: ''
+fun_fact: ''
+--- !ruby/object:Student
+name: ''
+email: ''
+hometown: ''
+github_user: ''
+reason_for_joining: ''
+fun_fact: ''
+--- !ruby/object:Student
+name: ''
+email: jennolim@gmail.com
+hometown: ''
+github_user: ''
+reason_for_joining: ''
+fun_fact: ''

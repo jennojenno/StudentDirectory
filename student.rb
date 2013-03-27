@@ -16,6 +16,17 @@ class Person
   attr_accessor :github_user
   attr_accessor :twitter
   attr_accessor :fun_fact
+
+  def self.create_person(type)
+    case type
+    when "Instructor"
+      Instructor.new
+    when "Student"
+      Student.new
+    else nil
+    end
+
+  end
 end
 
 class Student < Person
@@ -34,22 +45,26 @@ while ((input = gets.strip.chomp) != 'q') do
 
   person = nil
   case input
-  when 'Student' 
+  when 'student'.downcase 
     person = Student.new
     print "What is your name? "
     person.name = gets.strip.chomp
     print "What is your email? "
     person.email = gets.strip.chomp
+    while not person.email.include?("@")
+      print "You need to enter an email with a '@'!"
+      person.email = gets.strip.chomp
+    end
     print "Where are you from? "
     person.hometown = gets.strip.chomp
     print "What's your GitHub username? "
     person.github_user = gets.strip.chomp
-    print "What's your twitter username? "
-    person.twitter = gets.strip.chomp
+    print "What made you join WDI at GA? "
+    person.reason_for_joining = gets.strip.chomp
     print "Tell me a fun fact about yourself! "
     person.fun_fact = gets.strip.chomp 
     
-  when 'Instructor'
+  when 'instructor'.downcase
     person = Instructor.new
     print "What is your name? "
     person.name = gets.strip.chomp
