@@ -1,0 +1,8 @@
+--- !ruby/object:Student
+name: Jen
+email: jennolim@gmail.com
+--- !ruby/object:Student
+name: Jenn
+email: jennolim@gmail.com
+hometown: Seoul, Korea
+fun_fact: I liek cats
