@@ -1,5 +1,10 @@
+# be able to read the objects in the directory 
+# turn the directory from a string to array 
+
+
 require 'rubygems'
 require 'yaml'
+require 'pry'
 
 class Person
   attr_accessor :name
@@ -38,9 +43,9 @@ end
 
 
 
-@directory = ""
+@directory = []
 puts "Student Directory, v0.0.2 by Jen Lim"
-print "Enter Student or Instructor, q to save and quit: "
+print "Enter Student or Instructor, l to list, q to save and quit: "
 
 while ((input = gets.strip.chomp.downcase) != 'q') do
 
@@ -62,30 +67,23 @@ while ((input = gets.strip.chomp.downcase) != 'q') do
     print "What sort of instructor are you? "
     person.type = gets.strip.chomp
 
+  when 'l'
+    # Pull in existing people from a YAML file
+    @directory << YAML.load_documents(File.open('student_directory.yml'))
+   # binding.pry
   end
-
-
-
-
-
   
   # Append this to our yaml file
-  @directory += person.to_yaml
+  @directory << person #might have to replace += with << 
   puts @directory
   
   print "Enter Student or Instructor, q to save and quit: "
 end
 
 # Open a student_directory.yml YAML file and write it out on one line
-File.open('student_directory.yml', 'a') { |f| 
+File.open('student_directory.yml', 'w') { |f| 
+  @directory.compact.each do |person| 
+
   f.write(@directory) 
+end
 } 
-
-
-
-
-
-
-
-
-
