@@ -5,23 +5,30 @@ A more advanced app for creating a directory of students enrolled on the WDI cou
 
 # Install / running
 
-1. cd into projects/StudentDirectory
-2. Add a remote called dmgarland and pull my latest code
+* cd into projects/StudentDirectory
+* Add a remote called dmgarland and pull my latest code
 ```git remote add dmgarland https://github.com/dmgarland/StudentDirectory.git```
+
 ```git pull dmgarland database```
-3. Change to the database branch:
+* Change to the database branch:
+
 ```git checkout database```
-4. To run the program: 
+* To run the program: 
+
 ```ruby student_directory.rb```
-5. To run the tests:
+* To run the tests:
+ 
 ```ruby test/person_test.rb```
+
 ```ruby test/student.rb```
+
 ```ruby test/instructor.rb```
 
 # TODO
 1. Fix the people test, so that you can create Student or Instructor objects out of the information in the database.
 2. Change the student_directory.rb program so that when I press 'p' from the menu, I see a list of everyone in the database, and all of their attributes.
 3. Fix the student test, so that you can persist a Student object to the database. Check that it works using the test provided and the sqlite3 command:
+
 ```sqlite3 test/test.db```
 4. Do the same for instructor.
 5. Try your changes out in the main student_directory.rb program, so that you can save multiple students and instructors to the student_directory.db database, and see the results using sqlite3.
